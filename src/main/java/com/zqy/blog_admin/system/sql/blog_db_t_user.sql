@@ -1,0 +1,10 @@
+INSERT INTO blog_db.t_user (id, username, password, email, sex, create_time, update_time) VALUES (1, '何娜', 'ea in aliqua proident', 'q.yriewx@qq.com', 7, '2022-09-29 16:32:45', '2022-09-29 16:32:45');
+INSERT INTO blog_db.t_user (id, username, password, email, sex, create_time, update_time) VALUES (2, '陆娟', '$2a$10$NuxUtO7C24XeCSMWaUsry.z7SoBHOsTNgHvoquwyGFFyz3iiYaJBG', 'i.tpvmegp@qq.com', 61, '2022-09-29 16:32:47', '2022-10-08 13:55:03');
+INSERT INTO blog_db.t_user (id, username, password, email, sex, create_time, update_time) VALUES (3, '冯霞', 'tempor minim anim', 'q.xovlnts@qq.com', 47, '2022-09-29 16:32:49', '2022-09-29 16:32:49');
+INSERT INTO blog_db.t_user (id, username, password, email, sex, create_time, update_time) VALUES (4, '毛丽', 'ullamco amet labore', 'k.dczxdgxxe@qq.com', 45, '2022-09-29 16:32:51', '2022-09-29 16:32:51');
+INSERT INTO blog_db.t_user (id, username, password, email, sex, create_time, update_time) VALUES (5, '谢刚', 'consequat eiusmod Ut exercitation', 'g.fdvehw@qq.com', 33, '2022-09-29 16:32:53', '2022-09-29 16:32:53');
+INSERT INTO blog_db.t_user (id, username, password, email, sex, create_time, update_time) VALUES (6, '孟磊', 'ea occaecat ad laboris reprehenderit', 'z.qfve@qq.com', 91, '2022-09-29 16:32:54', '2022-09-29 16:32:54');
+INSERT INTO blog_db.t_user (id, username, password, email, sex, create_time, update_time) VALUES (7, '孟磊', 'ea occaecat ad laboris reprehenderit', 'z.qfve@qq.com', 91, '2022-09-29 16:33:05', '2022-09-29 16:33:05');
+INSERT INTO blog_db.t_user (id, username, password, email, sex, create_time, update_time) VALUES (8, '阎军', 'ea dolore', 'i.yjajtdryje@qq.com', 26, '2022-09-29 16:33:07', '2022-09-29 16:33:07');
+INSERT INTO blog_db.t_user (id, username, password, email, sex, create_time, update_time) VALUES (9, '任秀英', 'aute voluptate', 's.kcwgoo@qq.com', 31, '2022-09-29 16:33:09', '2022-09-29 16:33:09');
+INSERT INTO blog_db.t_user (id, username, password, email, sex, create_time, update_time) VALUES (10, '尹杰', 'amet', 'z.icfonveo@qq.com', 99, '2022-09-29 16:33:11', '2022-09-29 16:33:11');

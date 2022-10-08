@@ -1,0 +1,12 @@
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (1, '超级管理员', 'superAdmin', '2022-09-29 17:33:13', '2022-09-29 17:33:13', null);
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (2, '经理', 'manager', '2022-09-29 17:33:50', '2022-09-29 17:33:50', null);
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (3, '首席执行官', 'CEO', '2022-09-29 17:39:30', '2022-09-29 17:40:34', 'Chief Executive Officer');
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (4, '首席运营官', 'COO', '2022-09-29 17:41:15', '2022-09-29 17:41:15', 'Chief Operated Officer');
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (5, '首席信息官', 'CIO', '2022-09-29 17:41:58', '2022-09-29 17:41:58', 'Chief Information Officer');
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (6, '行政副总裁', 'VP', '2022-09-29 17:42:24', '2022-09-29 17:42:24', 'Vice-President of Administration');
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (7, '高级管理', 'SM', '2022-09-29 17:42:53', '2022-09-29 17:42:53', 'Senior Management');
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (8, '首席财务官', 'CFO', '2022-09-29 17:43:17', '2022-09-29 17:43:17', 'Chief Financial Officer');
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (9, '首席技术官', 'CTO', '2022-09-29 17:43:42', '2022-09-29 17:43:42', 'Chief Technology Officer');
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (10, '总经理', 'GM', '2022-09-29 17:44:10', '2022-09-29 17:44:10', 'General Manager');
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (11, '副总经理', 'DGM', '2022-09-29 17:44:39', '2022-09-29 17:44:39', 'Deputy General Manager');
+INSERT INTO blog_db.t_role (id, role_name, role_code, create_time, update_time, role_mark) VALUES (12, '合伙人', 'PARTNER', '2022-09-29 17:45:04', '2022-09-29 17:45:04', 'Partner');
