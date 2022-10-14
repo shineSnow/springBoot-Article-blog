@@ -18,5 +18,5 @@ mybatis-plus:
 config:
   jwt:
     secret: 12341!@#!@#!
-    expire: 30 # 过期时间,单位分钟
-    header: Authentication #随意定制
+    expire: 300 # 过期时间,单位分钟
+    header: Authorization #随意定制

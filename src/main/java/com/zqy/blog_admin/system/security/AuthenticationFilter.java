@@ -3,11 +3,19 @@ package com.zqy.blog_admin.system.security;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zqy.blog_admin.system.entity.User;
+import com.zqy.blog_admin.system.response.AjaxResult;
+import com.zqy.blog_admin.system.service.UserService;
+import com.zqy.blog_admin.system.serviceImpl.UserDetailsServiceImpl;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.FilterChain;
@@ -21,6 +29,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     @Resource
     private JwtUtils jwtUtils;
+    @Resource
+    private UserService userService;
 
     private AuthenticationManager authenticationManager;
 
@@ -60,8 +70,10 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
+
         SecurityUser jwtUser = (SecurityUser) authResult.getPrincipal();
         System.out.println("successfulAuthentication");
+
         String token = jwtUtils.createToken(jwtUser.getUsername());
         // 返回创建成功的token
         // 但是这里创建的token只是单纯的token
@@ -81,6 +93,15 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         System.out.println("unsuccessfulAuthentication");
         System.out.println(failed);
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write("authentication failed, reason: " + failed.getMessage());
+        response.setContentType("application/json; charset=utf-8");
+
+        if(failed instanceof BadCredentialsException){
+            response.getWriter().write(JSON.toJSONString(AjaxResult.error(10003,"用户名或密码错误")));
+        } else {
+            response.getWriter().write(JSON.toJSONString(AjaxResult.error(failed.getMessage())));
+        }
     }
+
+
+
 }

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zqy.blog_admin.system.entity.*;
 import com.zqy.blog_admin.system.mapper.*;
 import com.zqy.blog_admin.system.response.AjaxResult;
+import com.zqy.blog_admin.system.security.SecurityUser;
 import com.zqy.blog_admin.system.service.UserService;
 import com.zqy.blog_admin.system.utils.BeanMapTool;
 import com.zqy.blog_admin.system.utils.BeanMapUtilByApache;
@@ -15,6 +16,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanMap;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -113,10 +115,12 @@ public class UserController {
     // 查询用户基本信息
     @GetMapping("getUserInfo")
     @ApiOperation(value = "查询用户基本信息")
-    public AjaxResult getUserInfo(Long userId){
-
+    public AjaxResult getUserInfo(Authentication authentication){
+        Object principal =  authentication.getPrincipal();
+        String username = ((SecurityUser) principal).getUsername();
+        User userEntity = userService.findByUsername(username);
         // 查询用户基本信息
-        User user = userMapper.selectById(userId);
+        User user = userMapper.selectById(userEntity.getId());
 
         QueryWrapper<UserRole> userQueryWrapper = new QueryWrapper<>();
         userQueryWrapper.eq("uid",user.getId());

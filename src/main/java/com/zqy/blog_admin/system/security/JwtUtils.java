@@ -1,6 +1,7 @@
 package com.zqy.blog_admin.system.security;
 
 import com.zqy.blog_admin.system.dto.JwtProperties;
+import com.zqy.blog_admin.system.entity.User;
 import io.jsonwebtoken.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.AccessDeniedException;
@@ -8,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 public class JwtUtils {
@@ -29,6 +32,22 @@ public class JwtUtils {
         return Jwts.builder()
                 .setHeaderParam("type","JWT")
                 .setSubject(subject)
+                .setIssuedAt(nowDate)
+                .setExpiration(expireDate)
+                .signWith(SignatureAlgorithm.HS512,jwtProperties.getSecret())
+                .compact();
+    }
+
+    public String createToken(User user){
+        Date nowDate = new Date();
+        //过期时间
+        Date expireDate = new Date(nowDate.getTime() + jwtProperties.getExpire() * 60 * 1000);
+        Map claims = new HashMap<>();
+        claims.put("username",user.getUsername());
+        claims.put("userId",user.getId());
+        return Jwts.builder()
+                .setClaims(claims)
+                .setHeaderParam("type","JWT")
                 .setIssuedAt(nowDate)
                 .setExpiration(expireDate)
                 .signWith(SignatureAlgorithm.HS512,jwtProperties.getSecret())

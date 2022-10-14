@@ -40,16 +40,22 @@ public class AjaxResult  {
         AjaxResult ajaxResult = new AjaxResult();
         ajaxResult.setCode(503);
         ajaxResult.setSuccess(false);
-        ajaxResult.setMsg("failed");
+        ajaxResult.setMsg("系统开小差了");
         return ajaxResult;
     }
 
-    public static AjaxResult error(Object data){
+    public static AjaxResult error(String msg){
         AjaxResult ajaxResult = new AjaxResult();
         ajaxResult.setCode(503);
         ajaxResult.setSuccess(false);
-        ajaxResult.setMsg("failed");
-        ajaxResult.setData(data);
+        ajaxResult.setMsg(msg);
+        return ajaxResult;
+    }
+    public static AjaxResult error(Integer code,String msg){
+        AjaxResult ajaxResult = new AjaxResult();
+        ajaxResult.setCode(code);
+        ajaxResult.setSuccess(false);
+        ajaxResult.setMsg(msg);
         return ajaxResult;
     }
 
