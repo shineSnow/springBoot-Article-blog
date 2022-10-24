@@ -6,10 +6,8 @@ import com.zqy.blog_admin.system.response.AjaxResult;
 import com.zqy.blog_admin.system.vo.RoleVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import javafx.scene.chart.ValueAxis;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
