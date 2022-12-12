@@ -61,6 +61,7 @@ public class UserController {
     @ApiOperation(value = "用户注册")
     public Map<String,Object> register (@RequestBody UserVo userVo){
 
+
         System.out.println("userVo"+userVo);
         User user = new User();
         BeanUtils.copyProperties(userVo,user);
