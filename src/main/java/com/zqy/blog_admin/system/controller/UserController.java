@@ -81,7 +81,7 @@ public class UserController {
     @PreAuthorize("hasAnyRole('manager')")
     @GetMapping("list")
     @ApiOperation(value = "分页查询用户列表")
-    public AjaxResult list(Long current,Long size){
+    public AjaxResult list(@RequestParam(defaultValue = "1L") Long current, @RequestParam(defaultValue = "10") Long size){
 
         Page<User> page = new Page<User>(current, size);
 
@@ -89,6 +89,8 @@ public class UserController {
 
         Page<User> pageData = userMapper.selectPage(page, queryWrapper);
         List<User> userList = pageData.getRecords();
+
+
 
         ArrayList<Object> list = new ArrayList<>();
         for (User user : userList) {
@@ -110,7 +112,14 @@ public class UserController {
             list.add(mapUser);
         }
 
-        return AjaxResult.success(list);
+        HashMap<String, Object> map = new HashMap<>();
+
+        map.put("list",list);
+        map.put("current",pageData.getCurrent());
+        map.put("size",pageData.getSize());
+        map.put("total",pageData.getTotal());
+
+        return AjaxResult.success(map);
     }
 
     // 查询用户基本信息
